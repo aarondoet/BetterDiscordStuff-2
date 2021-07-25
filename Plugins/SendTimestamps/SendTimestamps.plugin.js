@@ -1,12 +1,12 @@
 /**
- * @name SendTimestamp
+ * @name SendTimestamps
  * @author Taimoor
  * @authorId 220161488516546561
  * @version 1.0.0
  * @description Use Discord's latest feature of using timestamps in your messages easily.
  * @authorLink https://github.com/Taimoor-Tariq
- * @source 
- * @updateUrl 
+ * @source https://raw.githubusercontent.com/Taimoor-Tariq/BetterDiscordStuff/main/Plugins/SendTimestamps/SendTimestamps.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/Taimoor-Tariq/BetterDiscordStuff/main/Plugins/SendTimestamps/SendTimestamps.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -35,7 +35,7 @@
 module.exports = (() => {
     const config = {
         "info": {
-            "name":"Send Timestamp",
+            "name":"Send Timestamps",
             "authors": [
                 {
                     "name": "Taimoor",
@@ -45,8 +45,8 @@ module.exports = (() => {
             ],
             "version": "1.0.0",
             "description": "Use Discord's latest feature of using timestamps in your messages easily.",
-            "github": "",
-            "github_raw": ""
+            "github": "https://github.com/Taimoor-Tariq/BetterDiscordStuff/blob/main/Plugins/SendTimestamps/SendTimestamps.plugin.js",
+            "github_raw": "https://raw.githubusercontent.com/Taimoor-Tariq/BetterDiscordStuff/main/Plugins/SendTimestamps/SendTimestamps.plugin.js"
         }
     };
 
