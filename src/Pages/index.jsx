@@ -1,5 +1,7 @@
 function HomePage() {
-    return <div>Welcome to Next.js!</div>;
+    return (
+        <div>Taimoor Tariq</div>
+    );
 }
 
 export default HomePage;
