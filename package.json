@@ -1,27 +1,17 @@
 {
-    "name": "BetterDiscordStuffSite",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Taimoor-Tariq/BetterDiscordStuff.git"
-    },
-    "author": "Taimoor Tariq",
-    "license": "MIT",
-    "homepage": "https://taimoor-tariq.github.io/BetterDiscordStuff/",
-    "dependencies": {
-        "dotenv": "^10.0.0",
-        "next": "^10.2.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "sass": "^1.32.12"
-    }
+  "name": "BetterDiscordStuff-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "next": "10.x",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "sass": "^1.32.12"
+  }
 }
