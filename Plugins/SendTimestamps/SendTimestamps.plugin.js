@@ -47,7 +47,16 @@ module.exports = (() => {
             "description": "Use Discord's latest feature of using timestamps in your messages easily.",
             "github": "https://github.com/Taimoor-Tariq/BetterDiscordStuff/blob/main/Plugins/SendTimestamps/SendTimestamps.plugin.js",
             "github_raw": "https://raw.githubusercontent.com/Taimoor-Tariq/BetterDiscordStuff/main/Plugins/SendTimestamps/SendTimestamps.plugin.js"
-        }
+        },
+        "changelog": [
+            {
+                "title": "New",
+                "type": "added",
+                "items": [
+                    "Option to select how the timestamp should get formatted"
+                ]
+            }
+        ]
     };
 
     return !global.ZeresPluginLibrary ? class {
