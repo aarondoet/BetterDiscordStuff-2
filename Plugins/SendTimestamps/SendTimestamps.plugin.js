@@ -101,7 +101,7 @@ module.exports = (() => {
         {DiscordSelectors, PluginUtilities, DOMTools, Modals, WebpackModules} = Api,
         DateInput = WebpackModules.getByDisplayName("DateInput"),
         TimeInput = WebpackModules.getByDisplayName("TimeInput"),
-        Dropdown = WebpackModules.find(m => m.prototype && !m.prototype.handleClick && m.prototype.render && m.prototype.render.toString().includes("default.select"));
+        Dropdown = WebpackModules.getByProps("SingleSelect").SingleSelect;
 
     return class SendTimestamp extends Plugin {
         onStart() {
@@ -151,7 +151,7 @@ module.exports = (() => {
                     formatInput = BdApi.React.createElement(FormItem, {
                         title: "Format",
                         children: [
-                            BdApi.React.createElement(createUpdateWrapper(Dropdown), { onChange: (format) => inputFormat = format.value, value: inputFormat, options: [{value: "t", label: "Short Time"}, {value: "T", label: "Long Time"}, {value: "d", label: "Short Date"}, {value: "D", label: "Long Date"}, {value: "f", label: "Short Date/Time"}, {value: "F", label: "Long Date/Time"}, {value: "R", label: "Relative Time"}] })
+                            BdApi.React.createElement(createUpdateWrapper(Dropdown), { onChange: (format) => inputFormat = format, value: inputFormat, options: [{value: "t", label: "Short Time"}, {value: "T", label: "Long Time"}, {value: "d", label: "Short Date"}, {value: "D", label: "Long Date"}, {value: "f", label: "Short Date/Time"}, {value: "F", label: "Long Date/Time"}, {value: "R", label: "Relative Time"}] })
                         ]
                     });
 
