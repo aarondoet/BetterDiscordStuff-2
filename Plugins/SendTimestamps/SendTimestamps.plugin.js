@@ -43,7 +43,7 @@ module.exports = (() => {
                     "github_username": "Taimoor-Tariq"
                 }
             ],
-            "version": "1.0.0",
+            "version": "1.0.1",
             "description": "Use Discord's latest feature of using timestamps in your messages easily.",
             "github": "https://github.com/Taimoor-Tariq/BetterDiscordStuff/blob/main/Plugins/SendTimestamps/SendTimestamps.plugin.js",
             "github_raw": "https://raw.githubusercontent.com/Taimoor-Tariq/BetterDiscordStuff/main/Plugins/SendTimestamps/SendTimestamps.plugin.js"
