@@ -123,7 +123,7 @@ module.exports = (() => {
                     });
                 };
 
-                let inputDate = new Date(), inputTime = new Date(),
+                let inputDate = new Date(), inputTime = new Date(), inputFormat = "f",
                     blank = BdApi.React.createElement(FormItem, { title: " " }),
                     dateInput = BdApi.React.createElement(FormItem, {
                         title: "Date",
@@ -136,9 +136,15 @@ module.exports = (() => {
                         children: [
                             BdApi.React.createElement(createUpdateWrapper(WebpackModules.getByDisplayName("TimeInput")), { onChange: (time) => { inputTime = time._d } })
                         ]
+                    }),
+                    formatInput = BdApi.React.createElement(FormItem, {
+                        title: "Format",
+                        children: [
+                            BdApi.React.createElement(createUpdateWrapper(WebpackModules.find(m => m.prototype && !m.prototype.handleClick && m.prototype.render && m.prototype.render.toString().includes("default.select"))), { onChange: (format) => inputFormat = format.value, value: inputFormat, options: [{value: "t", label: "Short Time"}, {value: "T", label: "Long Time"}, {value: "d", label: "Short Date"}, {value: "D", label: "Long Date"}, {value: "f", label: "Short Date/Time"}, {value: "F", label: "Long Date/Time"}, {value: "R", label: "Relative Time"}] })
+                        ]
                     });
 
-                Modals.showModal( "Enter Time", [ dateInput, blank, timeInput ], {
+                Modals.showModal( "Enter Time", [ dateInput, blank, timeInput, blank, formatInput ], {
                     confirmText: "Enter",
                     onConfirm: () => {
                         let timestamp = new Date();
@@ -151,7 +157,7 @@ module.exports = (() => {
                         timestamp.setMinutes(inputTime.getMinutes());
                         timestamp.setSeconds(0);
                     
-                        BdApi.findModuleByProps("ComponentDispatch").ComponentDispatch.dispatchToLastSubscribed(BdApi.findModuleByProps("ComponentActions").ComponentActions.INSERT_TEXT, {content: `<t:${Math.floor(timestamp.getTime()/1000)}> `});
+                        BdApi.findModuleByProps("ComponentDispatch").ComponentDispatch.dispatchToLastSubscribed(BdApi.findModuleByProps("ComponentActions").ComponentActions.INSERT_TEXT, {content: `<t:${Math.floor(timestamp.getTime()/1000)}:${inputFormat}> `});
                     }
                 });
             });
