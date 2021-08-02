@@ -90,7 +90,9 @@ module.exports = (() => {
     </button>
 </div>`,
         {DiscordSelectors, PluginUtilities, DOMTools, Modals, WebpackModules} = Api,
-        {Logger} = Library;
+        DateInput = WebpackModules.getByDisplayName("DateInput"),
+        TimeInput = WebpackModules.getByDisplayName("TimeInput"),
+        Dropdown = WebpackModules.find(m => m.prototype && !m.prototype.handleClick && m.prototype.render && m.prototype.render.toString().includes("default.select"));
 
     return class SendTimestamp extends Plugin {
         onStart() {
@@ -128,19 +130,19 @@ module.exports = (() => {
                     dateInput = BdApi.React.createElement(FormItem, {
                         title: "Date",
                         children: [
-                            BdApi.React.createElement(createUpdateWrapper(WebpackModules.getByDisplayName("DateInput"), "onSelect"), { onSelect: (date) => { inputDate = date._d } }),
+                            BdApi.React.createElement(createUpdateWrapper(DateInput, "onSelect"), { onSelect: (date) => { inputDate = date._d } }),
                         ]
                     }),
                     timeInput = BdApi.React.createElement(FormItem, {
                         title: "Time",
                         children: [
-                            BdApi.React.createElement(createUpdateWrapper(WebpackModules.getByDisplayName("TimeInput")), { onChange: (time) => { inputTime = time._d } })
+                            BdApi.React.createElement(createUpdateWrapper(TimeInput), { onChange: (time) => { inputTime = time._d } })
                         ]
                     }),
                     formatInput = BdApi.React.createElement(FormItem, {
                         title: "Format",
                         children: [
-                            BdApi.React.createElement(createUpdateWrapper(WebpackModules.find(m => m.prototype && !m.prototype.handleClick && m.prototype.render && m.prototype.render.toString().includes("default.select"))), { onChange: (format) => inputFormat = format.value, value: inputFormat, options: [{value: "t", label: "Short Time"}, {value: "T", label: "Long Time"}, {value: "d", label: "Short Date"}, {value: "D", label: "Long Date"}, {value: "f", label: "Short Date/Time"}, {value: "F", label: "Long Date/Time"}, {value: "R", label: "Relative Time"}] })
+                            BdApi.React.createElement(createUpdateWrapper(Dropdown), { onChange: (format) => inputFormat = format.value, value: inputFormat, options: [{value: "t", label: "Short Time"}, {value: "T", label: "Long Time"}, {value: "d", label: "Short Date"}, {value: "D", label: "Long Date"}, {value: "f", label: "Short Date/Time"}, {value: "F", label: "Long Date/Time"}, {value: "R", label: "Relative Time"}] })
                         ]
                     });
 
